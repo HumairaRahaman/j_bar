@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="plugin" group="system" method="upgrade">
+	<name>plg_system_jbar</name>
+	<author>ThemeXpert! Project</author>
+	<creationDate>2023-10</creationDate>
+	<copyright>(C) 2023-2024 ThemeXpert Ltd.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>support@themexpert.com</authorEmail>
+	<authorUrl>www.themexpert.com</authorUrl>
+	<version>1.0.0</version>
+	<description>PLG_JBAR_XML_DESCRIPTION</description>
+	<namespace path="src">Joomla\Plugin\System\Jbar</namespace>
+	<files>
+		<folder plugin="jbar">services</folder>
+		<folder>src</folder>
+		<folder>assets</folder>
+		<folder>fields</folder>
+        <filename>index.html</filename>
+	</files>
+
+	<config>
+		<fields name="params" addfieldpath="plugins/system/jbar/fields">
+
+            <fieldset name="basic">
+
+                <field name="note" type="note" style="notice" default="JBAR_NOTICE" />
+
+                <field name="show_wait" type="list" default="1000" label="JBAR_SHOW_WAIT_LABEL" description="JBAR_SHOW_WAIT_DESC">
+                    <option value="-1">Immediately</option>
+                    <option value="1000">After 1 Second</option>
+                    <option value="3000">After 3 Seconds</option>
+                    <option value="5000">After 5 Seconds</option>
+                </field>
+
+                <field name="hide_after" type="list" default="-1" label="JBAR_HIDE_AFTER_LABEL" description="JBAR_HIDE_AFTER_DESC">
+                    <option value="-1">Never</option>
+                    <option value="5000">After 5 Seconds</option>
+                    <option value="10000">After 10 Seconds</option>
+                    <option value="15000">After 15 Seconds</option>
+                    <option value="30000">After 30 Seconds</option>
+                    <option value="35000">After 35 Seconds</option>
+                    <option value="40000">After 40 Seconds</option>
+                    <option value="45000">After 45 Seconds</option>
+                    <option value="50000">After 50 Seconds</option>
+                    <option value="55000">After 55 Seconds</option>
+                    <option value="60000">After 1 Minute</option>
+                </field>
+
+                <field name="closable" type="list" default="1" label="JBAR_CLOSABLE_LABEL" description="JBAR_CLOSABLE_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field name="sticky" type="list" default="0" label="JBAR_STICKY_LABEL" description="JBAR_STICKY_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field name="tab_position" type="list" default="right" label="JBAR_TAB_POSITION_LABEL" description="JBAR_TAB_POSITION_DESC">
+                    <option value="left">Left side of the window</option>
+                    <option value="right">Right side of the window</option>
+                </field>
+
+                <field name="link_type" type="list" default="1" label="JBAR_LINK_TYPE_LABEL" description="JBAR_LINK_TYPE_DESC">
+                    <option value="0">Hide link</option>
+                    <option value="1">Display as hyperlink</option>
+                    <option value="2">Display as button</option>
+                </field>
+
+                <field name="target" type="list" default="1" label="JBAR_TARGET_LABEL" description="JBAR_TARGET_DESC">
+                   <option value="1">Same window</option>
+                   <option value="2">A new window</option>
+               </field>
+
+                <field name="message" type="text" size="50" default="Hello. Write your message here." label="JBAR_MESSAGE_LABEL" description="JBAR_MESSAGE_DESC"/>
+
+                <field name="link_text" type="text" size="30" default="Link text here" label="JBAR_LINK_TEXT_LABEL" description="JBAR_LINK_TEXT_DESC"/>
+
+                <field name="link_url" type="text" size="30" default="http://www.themexpert.com" label="JBAR_LINK_URL_LABEL" description="JBAR_LINK_URL_DESC"/>
+
+                <field name="load_page" type="list" label="Load jBar on" description="Select the page where jbar will load">
+                    <option value="all">All Pages</option>
+                    <option value="homepage">Only Homepage</option>
+                    <option value="selected">Selected Menu Only</option>
+                </field>
+
+                <field name="load_page_id" type="text" default="101,465" label="Menu id" description="Please give the menu id separated by coma. You will find the menu id by going Menus > Main menu/Others. Id is the last column of your menu item list. " showon="load_page:selected" />
+
+                <field name="mobile_disabled" type="list" default="1" label="Turn off mobile" description="Turn it OFF for mobile devices">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field name="@spacer" type="spacer" default="" label="JBAR_APPEARANCE" text="JBAR_APPEARANCE" description="" />
+
+                <field name="font" type="list" default="Georgia,Times New Roman,Times,serif" label="JBAR_FONT_LABEL" description="JBAR_FONT_DESC">
+                    <option value="Georgia,Times New Roman,Times,serif">Serif</option>
+                    <option value="Helvetica,Arial,sans-serif">Sans-Serif</option>
+                    <option value="Arial,Helvetica,sans-serif">Arial</option>
+                    <option value="Arial Black,Gadget,sans-serif">Arial Black</option>
+                    <option value="Cambria,serif">Cambria</option>
+                    <option value="Calibri,sans-serif">Calibri</option>
+                    <option value="Courier New,monospace">Courier New</option>
+                    <option value="Futura,sans-serif">Futura</option>
+                    <option value="Georgia,serif">Georgia</option>
+                    <option value="Helvetica,sans-serif">Helvetica</option>
+                    <option value="Lucida Grande,Lucida Sans Unicode,sans-serif">Lucida Grande</option>
+                    <option value="Tahoma,Geneva,sans-serif">Tahoma</option>
+                    <option value="Times New Roman,Times,serif">Times New Roman</option>
+                    <option value="Trebuchet MS,sans-serif">Trebuchet MS</option>
+                    <option value="Verdana,Geneva">Verdana</option>
+                </field>
+
+                <field name="bar_color" type="colorpicker" default="eb583c" label="JBAR_BAR_COLOR_LABEL" description="JBAR_BAR_COLOR_DESC" />
+
+                <field name="text_color" type="colorpicker" default="ffffff" label="JBAR_TEXT_COLOR_LABEL" description="JBAR_TEXT_COLOR_DESC" />
+
+                <field name="link_color" type="colorpicker" default="000000" label="JBAR_LINK_COLOR_LABEL" description="JBAR_LINK_COLOR_DESC" />
+
+                <field name="border" type="list" default="0" label="JBAR_BORDER_LABEL" description="JBAR_BORDER_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field name="border_color" type="colorpicker" default="ffffff" label="JBAR_BORDER_COLOR_LABEL" description="JBAR_BORDER_COLOR_DESC" showon="border:1" />
+
+                <field name="@spacer1" type="spacer" label="JBAR_ADVANCED" default="" text="JBAR_ADVANCED" description="" />
+
+                <field name="jquery" type="list" default="1" label="JBAR_JQUERY_LABEL" description="JBAR_JQUERY_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+			</fieldset>
+
+		</fields>
+	</config>
+
+</extension>
